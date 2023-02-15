@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/area.css">
+    <link rel="stylesheet" href="./css/window.css">
+    <link rel="stylesheet" href="./css/control.css">
+    <!--jQuery-->
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <title>Rapid Web - Editor</title>
+<script>
+function yuque(){
+window.open("https://www.yuque.com/codewyx/ecaak0/gc3d3k")
+}
+</script>
+</head>
+
+
+<input type="file" id="filebutton" accept=".rapidw"  style="display: none;" onchange="fileSelected()" /><br />
+<body>
+    <div class="popup" style="z-index:999999999999999999999999" id="cons">
+        <div class="popup-inner">
+
+            <div style="width: 100%;height: 100%;">
+             
+
+
+
+            </div>
+            <a class="popup__close" href="#">×</a>
+        </div>
+    </div>
+    <div class="popup" id="more_store">
+        <div class="popup-inner">
+            <div class="popup__photo">
+                <img src="./image/th.jpg" alt="">
+            </div>
+            <div class="popup__text">
+                <h1>#拓展中心</h1>
+
+                <div style="width: 100%;height: 100%;">
+                    <div class="Control-area-more" onclick="putexpan(1)">
+                        <div class="Control-button">
+                            <img src="./image/Control/map.svg" width="50" height="50" alt="">
+                            <div class="button-text">地图</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(2)">
+                        <div class="Control-button">
+                            <img src="./image/Control/movie.svg" width="50" height="50" alt="">
+                            <div class="button-text">视频</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(3)">
+                        <div class="Control-button">
+                            <img src="./image/Control/iframe.svg" width="50" height="50" alt="">
+                            <div class="button-text">网页</div>
+                        </div>
+                    </div>
+
+                    <div class="Control-area-more" onclick="putexpan(4)">
+                        <div class="Control-button">
+                            <img src="./image/Control/ad.svg" width="50" height="50" alt="">
+                            <div class="button-text">广告</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(5)">
+                        <div class="Control-button">
+                            <img src="./image/Control/percent.svg" width="50" height="50" alt="">
+                            <div class="button-text">进度条</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(6)">
+                        <div class="Control-button">
+                            <img src="./image/Control/list.svg" width="50" height="50" alt="">
+                            <div class="button-text">列表</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(7)">
+                        <div class="Control-button">
+                            <img src="./image/Control/pho.svg" width="50" height="50" alt="">
+                            <div class="button-text">轮播图</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(8)">
+                        <div class="Control-button">
+                            <img src="./image/Control/point.svg" width="50" height="50" alt="">
+                            <div class="button-text">提示框</div>
+                        </div>
+                    </div>
+                    <div class="Control-area-more" onclick="putexpan(9)">
+                        <div class="Control-button">
+                            <img src="./image/Control/javascriptcode.svg" width="50" height="50" alt="">
+                            <div class="button-text">自定义</div>
+                        </div>
+                    </div>
+                    <button type="button" class="button" onclick="getall()">现在获取所有插件！</button>
+                </div>
+
+            </div>
+            <a class="popup__close" href="#">×</a>
+        </div>
+    </div>
+    <div>
+        <nav class="navbar navbar-fixed-bottom navbar-expand-lg navbar-dark bg-dark" style="  position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;z-index:999999">
+            <div class="container-fluid">
+             <a href="./index.php" >   <img src="./image/logo.svg" height="35" alt=""> </a><img id="flipx" src="./image/back.svg" width="30"
+                    height="30" alt="">
+                &nbsp;&nbsp;
+
+
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                文件
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" onclick=" openFileDialog()" href="#">上传</a></li>
+                                <li><a class="dropdown-item" onclick="putoutcodeit()" href="#">下载</a></li>
+                                <hr>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">每日构建</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " onclick="putoutit()" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                导出
+                            </a>
+
+                        </li>
+                    </ul>
+                    &nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " onclick="yuque()" href="" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                关于
+                            </a>
+
+                        </li>
+                    </ul>
+                    <p style="color:white;left:70%;top:30%; position:absolute;">小提示：文本框左键移动、右键编辑、键盘控制位置</p>
+                    <img id="flip8" style="color:white;left:97%;top:30%; position:absolute;" src="./image/back.svg"
+                        width="30" height="30" alt="">
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="modal fade" style="z-index:999999999999" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">每日更新</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="contn1">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+            </div>
+            </div>
+            </div>
+        <div id="panel">
+
+            <div class="Control-area">
+                <br><br>
+                <a style="text-decoration:none;color:#000" href="">
+                    <div id="flip4">
+                    </div>
+                </a>
+                <br>
+                <div id="flip1" class="flip">基础组件</div>
+                <div id="panel1">
+                    <div class="Control-group">
+                        <div class="Control-button" id="Control_Button_Text" onclick="new_con_text()">
+                            <img src="./image/Control/text.svg" width="50" height="50" alt="">
+                            <div class="button-text">文字</div>
+                        </div>
+                        <div class="Control-button" id="Control_Button_Image" onclick="new_con_image()">
+                            <img src="./image/Control/image.svg" width="50" height="50" alt="">
+                            <div class="button-text">图片</div>
+                        </div>
+                    </div>
+
+                    <div class="Control-group">
+                        <div class="Control-button" id="Control_Button_Button" onclick="new_con_button()">
+                            <img src="./image/Control/button.svg" width="50" height="50" alt="">
+                            <div class="button-text">按钮</div>
+                        </div>
+                        <div class="Control-button_dis" id="Control_Button_Switch" >
+                            <img src="./image/Control/switchdis.svg" width="50" height="50" alt="">
+                            <div class="button-text">开关</div>
+                        </div>
+                    </div>
+                    <div class="Control-group">
+                        <div class="Control-button">
+                            <img src="./image/Control/table.svg" width="50" height="50" alt="">
+                            <div class="button-text">表格</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/menu.svg" width="50" height="50" alt="">
+                            <div class="button-text">菜单</div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="hr"></div><br>
+                <div id="flip2" class="flip">表单</div>
+                <div id="panel2">
+                    <div class="Control-group">
+                        <div class="Control-button">
+                            <img src="./image/Control/edit.svg" width="50" height="50" alt="">
+                            <div class="button-text">单行输入</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/fewlineedit.svg" width="50" height="50" alt="">
+                            <div class="button-text">多行输入</div>
+                        </div>
+                    </div>
+                    <div class="Control-group">
+                        <div class="Control-button">
+                            <img src="./image/Control/single.svg" width="50" height="50" alt="">
+                            <div class="button-text">单选</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/multiple.svg" width="50" height="50" alt="">
+                            <div class="button-text">多选</div>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="hr"></div><br>
+                <a onclick="ofppp()" style="text-decoration:none;color:#000">
+                    <div id="flip3" class="flip">拓展中心
+                    </div>
+                </a>
+                <div id="panel3" style="display:none" class="getallcss">
+                    <div class="Control-group" onclick="putexpan(1)">
+                        <div class="Control-button">
+                            <img src="./image/Control/map.svg" width="50" height="50" alt="">
+                            <div class="button-text">地图</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/movie.svg" width="50" height="50" alt="">
+                            <div class="button-text">视频</div>
+                        </div>
+                    </div>
+                    <div class="Control-group" onclick="putexpan(3)">
+                        <div class="Control-button" id="Control_Button_iframe" onclick="new_con_iframe()">
+                            <img src="./image/Control/iframe.svg" width="50" height="50" alt="">
+                            <div class="button-text">网页</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/ad.svg" width="50" height="50" alt="">
+                            <div class="button-text">广告</div>
+                        </div>
+                    </div>
+                    <div class="Control-group" onclick="putexpan(5)">
+                        <div class="Control-button">
+                            <img src="./image/Control/percent.svg" width="50" height="50" alt="">
+                            <div class="button-text">进度条</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/list.svg" width="50" height="50" alt="">
+                            <div class="button-text">列表</div>
+                        </div>
+                    </div>
+                    <div class="Control-group" onclick="putexpan(7)">
+                        <div class="Control-button">
+                            <img src="./image/Control/pho.svg" width="50" height="50" alt="">
+                            <div class="button-text">轮播图</div>
+                        </div>
+                        <div class="Control-button">
+                            <img src="./image/Control/point.svg" width="50" height="50" alt="">
+                            <div class="button-text">提示框</div>
+                        </div>
+                    </div>
+                    <div class="Control-group" onclick="putexpan(9)">
+                        <div class="Control-button">
+                            <img src="./image/Control/javascriptcode.svg" width="50" height="50" alt="">
+                            <div class="button-text">自定义</div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+
+            </div>
+
+        </div>
+        <div id="ptdiv" style="    width: 360.5px; ">
+<style>
+    .rapid-ui-button2 {
+    width: fit-content;
+
+    color: #ffffff;
+    border: none;
+    border-radius:10px
+}
+/* 从 uiverse.io 转载，原作者 @arghyaBiswasDev */
+/* The switch - the box around the slider */
+.rapid-ui-switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .rapid-ui-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .rapid-ui-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #adb5bd;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .rapid-ui-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.27em;
+    bottom: 0.25em;
+    background-color: #adb5bd;
+    transition: .4s;
+  }
+  
+  input:checked + .rapid-ui-switch-slider {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+  }
+  
+  input:focus + .rapid-ui-switch-slider {
+    box-shadow: 0 0 1px #007bff;
+  }
+  
+  input:checked + .rapid-ui-switch-slider:before {
+    transform: translateX(1.4em);
+    background-color: #fff;
+  }
+</style>
+
+
+        </div>
+        <div class="iframe-box" id="panel8">
+            <br><br><br>
+            <h3>控制</h3><br>
+           <!-- <button type="button" class="rapid-ui-button" onclick="openkz()"  disabled >打开代码控制</button>-->
+<!--[暂时无法使用]-->
+            &nbsp;
+            <button type="button" class="rapid-ui-button" onclick="putpm()">切换屏幕类型</button>
+            <br>
+            <div id="kj" style="color:white">
+            </div>
+        </div>
+        <!--
+            <div id="ptrightdiv">
+                <br>   <br>   <br>
+<p style="color:white;text-align: center;" id="flip4">控件设置</p>
+            </div>
+        -->
+    </div>
+
+    <script src="./js/code.js"></script>
+    <script src="./js/major.js"></script>
+    <script src="./js/control.js"></script>
+    <script src="./js/onload.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

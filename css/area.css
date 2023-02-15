@@ -1,0 +1,212 @@
+.hr {
+    height: 1px;
+    border: none;
+    border-top: 1px solid #FFF;
+}
+
+#ptdiv {
+    box-shadow: 0 5px 30px #ffffff;
+    height: 650.5px;
+
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    left: 220px;
+    top: 75px;
+    border-radius: 15px;
+}
+/*
+.style-edit-box {
+    padding: 20px;
+    height: 100%;
+    width: 300.5px; 
+    background-color: rgb(35 35 35);
+    position: fixed;
+    left: 606.5px;
+    top: 0px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px #353535;
+}
+
+.style-edit-box h3 {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 25px;
+    cursor: default;
+}*/
+
+.iframe-box {
+    padding: 20px;
+    height:100%;
+    width: 350.5px; 
+    background-color: rgb(35 35 35);
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px #353535;
+}
+.iframe-box h3 {
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 25px;
+    cursor: default;
+}
+
+#ptrightdiv {
+
+    height: 100%;
+    width: 300px; 
+    background-color: #141414;
+    position: fixed;
+    right:0px;
+    top:0px;
+
+}
+
+.flip {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+#flip4 {
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+.flip:hover,#flip4:hover {
+    background-color: #343434;
+    color: #ffffff;
+}
+
+body,
+html {
+    margin: 0;
+    height: 100%;
+    background: #000000!important;
+}
+
+.Control-area {
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    position: fixed;
+    background: #141414;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.Control-area::-webkit-scrollbar-thumb {
+   background: #454545;
+}
+
+.Control-area .Control-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.Control-area .Control-button {
+    background: #141414;
+    border: solid 2px #ffffff;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffffff;
+    cursor: pointer;
+}
+.Control-area .Control-button_dis {
+    background: #141414;
+    border: solid 3px #5e5e5e;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:#5e5e5e;
+
+}
+
+
+.Control-area .text-h1 {
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.Control-area .Control-button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.25);
+}
+
+.Control-button .button-text {
+    color: #ffffff;
+    font-weight: 300;
+}
+.Control-button_dis .button-text {
+    color: #5e5e5e;
+    font-weight: 300;
+}
+
+.Control-area-more {
+
+    color: #ffffff;
+    border: solid 4px #ffffff;
+    border-radius: 12px;
+    width:21%;
+    height:22%;
+    display:inline;
+    margin-bottom:15px;
+    float: left;
+    padding-top:7px;
+	margin-left: 20px;	
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.Control-area-more:hover {
+    transform: scale(1.05);
+    filter: brightness(1.25);
+}
+#flip {
+
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center;
+    padding-bottom:15px;
+
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+  }
+
+.btn-check:focus+.btn, .btn:focus {
+   box-shadow:black!important;
+}

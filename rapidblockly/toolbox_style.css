@@ -1,0 +1,36 @@
+/* Makes our label white. */
+
+/* Adds padding around the group of categories and separators. */
+.blocklyToolboxContents {
+  padding: .5em;
+}
+/* 图标改成白色. */
+.customIcon {
+  color: white;
+}
+/* 配置图标位置. */
+.blocklyTreeRowContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Adds space between the categories, rounds the corners and adds space around the label. */
+.blocklyTreeRow {
+   height: 30px;
+   line-height: 30px;
+   padding: 3px;
+  margin-bottom: .5em;
+  border-radius: 5px;
+}
+
+.blocklyTreeRow {
+  height: initial;
+}
+ .blocklyTreeIcon{
+background:url();
+    content: "\A";  
+   background-size: 17px 17px;
+}
+xml{
+background-color: black!important;
+}

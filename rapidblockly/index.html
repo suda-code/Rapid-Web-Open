@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<title>Rapid——抛弃繁琐的代码，轻松制作你的网站！</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="core.js"></script>
+		<script src="block.js"></script>
+			  		<script src="index.js"></script>
+		<script src="php_compressed.js"></script>
+			  		  <link rel="stylesheet" href="toolbox_style.css"/>
+		<script src="zh-hans.js"></script>
+		<script src="htmlblock.js"></script>
+		<script src="htmlblockcode.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+		  <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css"/>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+		<link rel="shortcut icon" href="icon2.png">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+      margin: 10px;
+    }
+
+    #blocklyDiv {
+      float: bottom;
+      height: 90%;
+      width: 100%;
+    }
+  </style>
+
+<style>@media screen and (max-width: 600px) {.file_img{margin-left:20px !important;}}</style>
+		<style>
+.dark{
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    outline:5000px solid rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+}
+@media screen and (max-width: 600px) {
+  .useless{
+    display:none;
+    width:0;
+    height:0;
+  }
+ .useful{
+    display:inline;
+  }
+}
+			@media screen and (max-width: 952px) {
+  .useless-no{
+    display:none;
+    width:0;
+    height:0;
+  }
+}
+			/* From cssbuttons.io by @gagan-gv */
+.card {
+ width: 750px;
+ height: 400px;
+ background: #ffffff;
+  font-color: #000000;
+ border-radius: 20px;
+ text-align: center;
+ transition: all 0.5s;
+}
+
+
+.card>.blob {
+ height: 30px;
+ width: 75%;
+ border-radius: 0 0 30px 30px;
+ margin: 0 auto;
+ background-color: #00897B;
+  font-color: #000000;
+ visibility: visible;
+ transition: all 0.3s;
+}
+.white {
+color: #FFFFFF
+			}
+
+.card>.img {
+ display: flex;
+ margin: 30px auto 10px auto;
+ width: 90px;
+ height: 90px;
+ background-color: #00897B;
+ border-radius: 27px;
+ font-size: 40px;
+ font-color: #000000;
+ justify-content: center;
+ align-items: center;
+ transition: all 0.5s;
+}
+
+</style>
+<!--右键菜单-->
+<style type="text/css">
+  #rightMenu
+  {
+    list-style: none;
+    background: #ffffff;
+    border: solid 1px darkgrey;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    /*left: 0px;*/
+    top: 0px;
+    display: none;
+    border-radius: 10px;
+  }
+  #rightMenu *{
+    padding: 5px;
+    margin: 5px;
+  }
+  #rightMenu #lable{
+    font-size: 13px;
+    cursor: default;
+    user-select: none;
+  }
+  #rightMenu li
+  {
+    user-select: none;
+    color: #000000;
+    width: 150px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-bottom: solid 1px darkgrey;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s; /* Safari */
+  }
+  #rightMenu li a
+  {
+    user-select: none;
+    color: #000000;
+    text-decoration:none;
+  }
+  #rightMenu li:hover
+  {
+    color: #ffffff;
+    background-color: #2c3e5080;
+  }
+  #rightMenu li:hover a
+  {
+    color: #ffffff;
+  }
+</style>
+    <script src="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"></script>
+		    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+
+	</head>
+	<body onload='start()'>
+<div class="mdui-appbar">
+			<div class="mdui-toolbar " style="background-color: #4d4d4d!important; color: #fff!important;" id="toolbar">
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="javascript:;" id="demo1" class="mdui-typo-subheading file_img" mdui-tooltip="{content: '保存'}" style="margin-left:-10px "><i class="mdui-icon material-icons">&#xe161;</i></a>
+
+	<div class="mdui-toolbar-spacer"></div>
+		</div>
+
+		<small>&nbsp;</small>
+		<p4>&nbsp;</p4>
+		<div id="blocklyDiv" style="height: calc(100vh - 100px); width: calc(100vw - 10px);">
+      <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none;background-color: #4d4d4d!important">
+        <category name="逻辑" colour="%{BKY_LOGIC_HUE}" >
+          <block type="controls_if"></block>
+          <block type="logic_compare"></block>
+          <block type="logic_operation"></block>
+          <block type="logic_negate"></block>
+          <block type="logic_boolean"></block>
+          <block type="logic_null"></block>
+          <block type="logic_ternary"></block>
+        </category>
+        <category name="循环" colour="%{BKY_LOOPS_HUE}">
+          <block type="controls_repeat_ext">
+            <value name="TIMES">
+              <shadow type="math_number">
+                <field name="NUM">10</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_whileUntil"></block>
+          <block type="controls_for">
+            <value name="FROM">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">10</field>
+              </shadow>
+            </value>
+            <value name="BY">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="controls_forEach"></block>
+          <block type="controls_flow_statements"></block>
+        </category>
+        <category name="数学" colour="%{BKY_MATH_HUE}">
+          <block type="math_number">
+            <field name="NUM">123</field>
+          </block>
+          <block type="math_arithmetic">
+            <value name="A">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_single">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">9</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_trig">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">45</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_constant"></block>
+          <block type="math_number_property">
+            <value name="NUMBER_TO_CHECK">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_round">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">3.1</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_on_list"></block>
+          <block type="math_modulo">
+            <value name="DIVIDEND">
+              <shadow type="math_number">
+                <field name="NUM">64</field>
+              </shadow>
+            </value>
+            <value name="DIVISOR">
+              <shadow type="math_number">
+                <field name="NUM">10</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_constrain">
+            <value name="VALUE">
+              <shadow type="math_number">
+                <field name="NUM">50</field>
+              </shadow>
+            </value>
+            <value name="LOW">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="HIGH">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_random_int">
+            <value name="FROM">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="TO">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="math_random_float"></block>
+          <block type="math_atan2">
+            <value name="X">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="Y">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="文本" colour="%{BKY_TEXTS_HUE}">
+          <block type="text"></block>
+          <block type="text_join"></block>
+          <block type="text_append">
+            <value name="TEXT">
+              <shadow type="text"></shadow>
+            </value>
+          </block>
+          <block type="text_length">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_isEmpty">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_indexOf">
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web</field>
+              </block>
+            </value>
+            <value name="FIND">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_charAt">
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_getSubstring">
+            <value name="STRING">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_changeCase">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_trim">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_prompt_ext">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <category name="列表" colour="%{BKY_LISTS_HUE}">
+          <block type="lists_create_with">
+            <mutation items="0"></mutation>
+          </block>
+          <block type="lists_create_with"></block>
+          <block type="lists_repeat">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">5</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_length"></block>
+          <block type="lists_isEmpty"></block>
+          <block type="lists_indexOf">
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web列表</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_getIndex">
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web列表</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_setIndex">
+            <value name="LIST">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web列表</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_getSublist">
+            <value name="LIST">
+              <block type="variables_get">
+                <field name="VAR">Rapid_Web列表</field>
+              </block>
+            </value>
+          </block>
+          <block type="lists_split">
+            <value name="DELIM">
+              <shadow type="text">
+                <field name="TEXT">,</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="lists_sort"></block>
+        </category>
+        <category name="颜色" colour="%{BKY_COLOUR_HUE}">
+          <block type="colour_picker"></block>
+          <block type="colour_random"></block>
+          <block type="colour_rgb">
+            <value name="RED">
+              <shadow type="math_number">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+            <value name="GREEN">
+              <shadow type="math_number">
+                <field name="NUM">50</field>
+              </shadow>
+            </value>
+            <value name="BLUE">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="colour_blend">
+            <value name="COLOUR1">
+              <shadow type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+              </shadow>
+            </value>
+            <value name="COLOUR2">
+              <shadow type="colour_picker">
+                <field name="COLOUR">#3333ff</field>
+              </shadow>
+            </value>
+            <value name="RATIO">
+              <shadow type="math_number">
+                <field name="NUM">0.5</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
+        <sep></sep>
+        <category name="变量" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+        <category name="函数" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
+      </xml>
+		</div>
+				
+  </div>	
+<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+  <script src="load.js"></script>
+
+   <!--  <script src="https://cdn.bootcss.com/Darkmode.js/1.4.0/darkmode-js.js"></script><script>  new Darkmode({ label: '🌗',right: '0px', bottom: 'calc(92vh - 10px)', left:'calc(170vh - 10px)'}).showWidget();</script>-->
+   <ul id="rightMenu" style="width: 170px;">
+     <div id="lable">文件</div>
+     <li onclick="location.reload();">新建一个HTML</li>
+     <li onclick="dosaveblockly()">保存到本地</li>
+     <li onclick="myFunction()">打开本地文件</li>
+     <div id="lable">系统</div>
+     <li onclick="window.opener=null;window.close();">退出Rapid Editor</li>
+   </ul>
+   <script type="text/javascript">
+     //提取到函数外面作为全局变量
+     var rm=document.getElementById("rightMenu");
+
+     //自定义一个浏览器右键菜单，单击右键是显示它
+     //oncontextmenu上下文菜单事件，右键菜单
+     document.getElementById("toolbar").oncontextmenu=function (e) {
+       //显示我们自己定义的右键菜单
+       //1.找到菜单
+       //提取到函数外面作为全局变量
+
+       //兼容Event对象
+       e=e || window.event;
+
+       //2.设置菜单的位置等于鼠标的坐标
+       //判断：如果鼠标的位置+菜单的宽度>网页的宽度，那么就改为右边定位
+       //鼠标坐标
+       var mx=e.clientX;
+       var my=e.clientY;
+       //菜单宽度
+       var rmWidth=parseInt(rm.style.width);
+       //网页的宽度(高度用同样的方法解决)
+       var pageWidth=document.documentElement.clientWidth;
+       //console.log(pageWidth);
+       if((mx+rmWidth)<pageWidth)
+       {
+         rm.style.left=mx+"px";
+           rm.style.top=my+"px";
+       }
+       else
+       {
+         rm.style.right=mx+"px";
+           rm.style.top=my+"px";
+       }
+
+       //3.显示右键菜单
+       rm.style.display="block";
+
+       //阻止默认的右键菜单显示
+       return false;
+     };
+
+     //不需要积隐藏右键菜单
+     document.documentElement.onclick=function () {
+       rm.style.display="none";
+     }
+
+   </script>
+     <script>
+    var demoWorkspace = Blockly.inject({media: './media/'});
+  </script>
